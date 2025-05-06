@@ -14,10 +14,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Link from "next/link";
+import { Loader2Icon } from "lucide-react";
 
 export const VideosSection = () => {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense
+      fallback={
+        <div className="flex flex-col w-full items-center justify-center">
+          <Loader2Icon className="animate-spin text-muted-foreground" />
+        </div>
+      }
+    >
       <ErrorBoundary fallback={<p>Error</p>}>
         <VideosSectionSuspense />
       </ErrorBoundary>
